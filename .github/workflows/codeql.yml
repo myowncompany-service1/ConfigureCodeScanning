@@ -2,9 +2,9 @@ name: "Code_Scanning_using_CodeQL"
 on: 
   push:
     branches: ["main"]
-    paths-ignore:
-     - '**/*.md'
-     - '**/*.txt'
+#    paths-ignore:
+#     - '**/*.md'
+#     - '**/*.txt'
   pull_request:
     branches: ["main"]
   schedule:
