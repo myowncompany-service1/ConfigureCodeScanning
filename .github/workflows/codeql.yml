@@ -1,0 +1,36 @@
+name: "Code_Scanning_using_CodeQL"
+on: 
+  push:
+    branches: ["main"]
+    paths-ignore:
+     - '**/*.md'
+     - '**/*.txt'
+  pull_request:
+    branches: ["main"]
+  schedule:
+     - cron: '20 14 * * 1'
+jobs:
+   analyze:
+      name: Analyze
+      runs-on: ubunut-latest
+      strategy:
+        matrix:
+         language: [ 'javascript']
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      # Initialize the CodeQL Code for Scanning. 
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+           category: "/language:${{matrix.language}}"
+    
+     
+ 
+    
+
+
