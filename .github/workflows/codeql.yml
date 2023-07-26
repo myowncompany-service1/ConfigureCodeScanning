@@ -12,7 +12,7 @@ on:
 jobs:
    analyze:
       name: Analyze
-      runs-on: ubunut-latest
+      runs-on: ubuntu-latest
       strategy:
         matrix:
          language: [ 'javascript']
